@@ -1,0 +1,11 @@
+
+#define HAVE_SYS_SIGNALFD_H 0
+#define HAVE_SYS_TIMERFD_H 0
+#define HAVE_SYS_EVENTFD_H 0
+#define HAVE_ERR_H 0
+
+#define HAVE_EPOLLRDHUP 0
+#define HAVE_NOTE_TRUNCATE 0
+#define HAVE_DECL_PPOLL 0
+#define HAVE_NOTE_REVOKE 0
+

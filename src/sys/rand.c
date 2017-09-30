@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2010 Creytiv.com
  */
+#define _CRT_RAND_S 
 #include <stdlib.h>
 #ifdef USE_OPENSSL
 #include <openssl/rand.h>
@@ -91,7 +92,8 @@ uint32_t rand_u32(void)
 #elif defined(HAVE_ARC4RANDOM)
 	v = arc4random();
 #elif defined(WIN32)
-	v = (rand() << 16) + rand(); /* note: 16-bit rand */
+	rand_s(&v);
+	//v = (rand() << 16) + rand(); /* note: 16-bit rand */
 #else
 	v = rand();
 #endif

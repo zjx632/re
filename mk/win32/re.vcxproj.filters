@@ -731,9 +731,6 @@
     <ClCompile Include="..\..\src\ice\connchk.c">
       <Filter>src\ice</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ice\gather.c">
-      <Filter>src\ice</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\ice\ice.c">
       <Filter>src\ice</Filter>
     </ClCompile>
@@ -869,6 +866,18 @@
     <ClCompile Include="..\..\src\sha\sha1.c">
       <Filter>src\sha</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)\nedmalloc\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\pthread\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\srtp\README">
