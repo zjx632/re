@@ -701,7 +701,9 @@ static int fd_poll(struct re *re)
 #endif
 		tv.tv_usec = (uint32_t) (to % 1000) * 1000;
 		re_unlock(re);
-		n = select(re->nfds, &rfds, &wfds, &efds, to ? &tv : NULL);
+		//n = select(re->nfds, &rfds, &wfds, &efds, to ? &tv : NULL);
+		struct timeval tv2 = { 0, 500 };
+		n = select(re->nfds, &rfds, &wfds, &efds, to ? &tv : &tv2);
 		re_lock(re);
 	}
 		break;
@@ -723,8 +725,9 @@ static int fd_poll(struct re *re)
 		timeout.tv_nsec = (to % 1000) * 1000000;
 
 		re_unlock(re);
+		struct timespec tv2 = { 0, 500 };
 		n = kevent(re->kqfd, NULL, 0, re->evlist, re->maxfds,
-			   to ? &timeout : NULL);
+			to ? &timeout : &tv2);
 		re_lock(re);
 		}
 		break;
