@@ -2,17 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory);$(MSBuildThisFileDirectory)\kqueue;$(MSBuildThisFileDirectory)\pthread;$(MSBuildThisFileDirectory)\nedmalloc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
 	  <DebugInformationFormat>OldStyle</DebugInformationFormat>
-	  <PreprocessorDefinitions>FD_SETSIZE=4096;HAVE_KQUEUE;HAVE_PTHREAD;RELEASE;JBUF_STAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <PreprocessorDefinitions>FD_SETSIZE=1024;RELEASE;JBUF_STAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 	  <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)\nedmalloc\*.c" />
-	<ClCompile Include="$(MSBuildThisFileDirectory)\pthread\*.c" />
-	<ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
-	<ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
 	<ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
-  </ItemGroup>
+  </ItemGroup> 
+  <Import Project="$(MSBuildThisFileDirectory)\nedmalloc.props" />
+  <!-- <Import Project="$(MSBuildThisFileDirectory)\kqueue.props" /> -->
+  <!-- <Import Project="$(MSBuildThisFileDirectory)\pthread.props" /> -->
 </Project>
