@@ -52,7 +52,8 @@
 
 
 enum {
-	UDP_RXSZ_DEFAULT = 8192
+	UDP_RXSZ_DEFAULT = 8192,
+	UDP_SOCK_BUF_DEFAULT = UDP_RXSZ_DEFAULT * 100,
 };
 
 
@@ -361,6 +362,9 @@ int udp_listen(struct udp_sock **usp, const struct sa *local,
 
 		/* OK */
 		us->fd = fd;
+
+		udp_sockbuf_set(us, UDP_SOCK_BUF_DEFAULT);
+
 		break;
 	}
 
@@ -412,6 +416,8 @@ int udp_connect(struct udp_sock *us, const struct sa *peer)
 		fd = us->fd6;
 	else
 		fd = us->fd;
+
+	udp_sockbuf_set(us, UDP_SOCK_BUF_DEFAULT);
 
 	if (0 != connect(fd, &peer->u.sa, peer->len))
 		return errno;

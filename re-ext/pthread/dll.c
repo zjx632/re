@@ -40,8 +40,8 @@
 #endif
 
 #if defined(PTW32_STATIC_LIB) && defined(_MSC_VER) && _MSC_VER >= 1400
-#  undef PTW32_STATIC_LIB
-#  define PTW32_STATIC_TLSLIB
+//#  undef PTW32_STATIC_LIB
+//#  define PTW32_STATIC_TLSLIB
 #endif
 
 #include "pthread.h"
@@ -163,13 +163,8 @@ EXTERN_C PIMAGE_TLS_CALLBACK _xl_b = TlsMain;
  * module. The pthread_win32_autostatic_anchor() hack below (and in
  * implement.h) does the job in a portable manner.
  */
-
-static int on_process_init(void)
-{
-    pthread_win32_process_attach_np ();
-    return 0;
-}
-
+ 
+ 
 static int on_process_exit(void)
 {
     pthread_win32_thread_detach_np  ();
@@ -177,19 +172,27 @@ static int on_process_exit(void)
     return 0;
 }
 
+static int on_process_init(void)
+{
+    pthread_win32_process_attach_np ();
+	atexit(on_process_exit);
+    return 0;
+}
+
+
 #if defined(__GNUC__)
 __attribute__((section(".ctors"), used)) static int (*gcc_ctor)(void) = on_process_init;
 __attribute__((section(".dtors"), used)) static int (*gcc_dtor)(void) = on_process_exit;
 #elif defined(_MSC_VER)
 #  if _MSC_VER >= 1400 /* MSVC8 */
 #    pragma section(".CRT$XCU", long, read)
-#    pragma section(".CRT$XPU", long, read)
+#    pragma section(".CRT$XTU", long, read)
 __declspec(allocate(".CRT$XCU")) static int (*msc_ctor)(void) = on_process_init;
-__declspec(allocate(".CRT$XPU")) static int (*msc_dtor)(void) = on_process_exit;
+__declspec(allocate(".CRT$XTU")) static int (*msc_dtor)(void) = on_process_exit;
 #  else
 #    pragma data_seg(".CRT$XCU")
 static int (*msc_ctor)(void) = on_process_init;
-#    pragma data_seg(".CRT$XPU")
+#    pragma data_seg(".CRT$XTU")
 static int (*msc_dtor)(void) = on_process_exit;
 #    pragma data_seg() /* reset data segment */
 #  endif

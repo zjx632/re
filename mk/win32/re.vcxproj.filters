@@ -878,6 +878,32 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
     <ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\nedmalloc\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\pthread\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\nedmalloc\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\pthread\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)\pthread\pthread.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\srtp\README">

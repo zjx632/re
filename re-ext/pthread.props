@@ -3,7 +3,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)\pthread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-	  <PreprocessorDefinitions>HAVE_PTHREAD;PTW32_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <PreprocessorDefinitions>HAVE_PTHREAD;PTW32_CONFIG_H;PTW32_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

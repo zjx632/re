@@ -4,14 +4,16 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
 	  <DebugInformationFormat>OldStyle</DebugInformationFormat>
-	  <PreprocessorDefinitions>FD_SETSIZE=1024;RELEASE;JBUF_STAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <PreprocessorDefinitions>FD_SETSIZE=2048;RELEASE;JBUF_STAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 	  <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
+  <!-- 
   <ItemGroup>
 	<ClCompile Include="$(MSBuildThisFileDirectory)\*.c" />
   </ItemGroup> 
-  <Import Project="$(MSBuildThisFileDirectory)\nedmalloc.props" />
+  -->
+  <!-- <Import Project="$(MSBuildThisFileDirectory)\nedmalloc.props" /> -->
   <!-- <Import Project="$(MSBuildThisFileDirectory)\kqueue.props" /> -->
-  <!-- <Import Project="$(MSBuildThisFileDirectory)\pthread.props" /> -->
+  <Import Project="$(MSBuildThisFileDirectory)\pthread.props" />
 </Project>

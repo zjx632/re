@@ -68,8 +68,8 @@
 #endif
 
 #if defined (PTW32_STATIC_LIB) && _MSC_VER >= 1400
-# undef PTW32_STATIC_LIB
-# define PTW32_STATIC_TLSLIB
+//# undef PTW32_STATIC_LIB
+//# define PTW32_STATIC_TLSLIB
 #endif
 
 /* When building the library, you should define PTW32_BUILD so that
