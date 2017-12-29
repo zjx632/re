@@ -16,6 +16,8 @@
 
 #include "../common/private.h"
 
+
+
 struct event_buf {
     DWORD       bytes;
     ULONG_PTR   key;

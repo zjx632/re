@@ -7,7 +7,6 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-  	<ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\common\*.c" />
-	<ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\windows\*.c" />
+  	<ClCompile Include="$(MSBuildThisFileDirectory)\kqueue\**\*.c" />
   </ItemGroup>
 </Project>

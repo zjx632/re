@@ -754,7 +754,7 @@ static int fd_poll(struct re *re)
 #endif
 		tv.tv_usec = (uint32_t) (to % 1000) * 1000;
 		re_unlock(re);
-		struct timeval tv2 = {2, 500000};
+		struct timeval tv2 = {0, 500000};
 		n = select(nfds, &rfds, &wfds, &efds, to ? &tv : &tv2);
 		re_lock(re);
 	}
@@ -1220,11 +1220,9 @@ void re_thread_close(void)
 
 	re = pthread_getspecific(pt_key);
 	if (re) {
-		pthread_mutex_destroy(re->mutexp);
 		poll_close(re);
 		free(re);
 		pthread_setspecific(pt_key, NULL);
-		pthread_key_delete(pt_key);
 	}
 #endif
 }

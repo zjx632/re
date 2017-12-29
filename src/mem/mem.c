@@ -20,11 +20,15 @@
 #define DEBUG_LEVEL 5
 #include <re_dbg.h>
 
+//#include <jemalloc/jemalloc.h>
+#define re_malloc		malloc
+#define re_realloc		realloc
+#define re_free			free
+
 
 #ifndef RELEASE
 #define MEM_DEBUG 1  /**< Enable memory debugging */
 #endif
-
 
 /** Defines a reference-counting memory object */
 struct mem {
@@ -136,7 +140,7 @@ void *mem_alloc(size_t size, mem_destroy_h *dh)
 	mem_unlock();
 #endif
 
-	m = malloc(sizeof(*m) + size);
+	m = re_malloc(sizeof(*m) + size);
 	if (!m)
 		return NULL;
 
@@ -214,7 +218,7 @@ void *mem_realloc(void *data, size_t size)
 	mem_unlock();
 #endif
 
-	m2 = realloc(m, sizeof(*m2) + size);
+	m2 = re_realloc(m, sizeof(*m2) + size);
 
 #if MEM_DEBUG
 	mem_lock();
@@ -329,7 +333,7 @@ void *mem_deref(void *data)
 
 	STAT_DEREF(m);
 
-	free(m);
+	re_free(m);
 
 	return NULL;
 }

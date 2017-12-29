@@ -3,9 +3,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-	  <DebugInformationFormat>OldStyle</DebugInformationFormat>
-	  <PreprocessorDefinitions>FD_SETSIZE=2048;RELEASE;JBUF_STAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-	  <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+	  <PreprocessorDefinitions>_WIN32_WINNT=0x0502;FD_SETSIZE=4096;RELEASE;JBUF_STAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <AdditionalOptions Condition="$(PlatformToolsetVersion)>120">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- 
@@ -14,6 +13,7 @@
   </ItemGroup> 
   -->
   <!-- <Import Project="$(MSBuildThisFileDirectory)\nedmalloc.props" /> -->
+  <!-- <Import Project="$(MSBuildThisFileDirectory)\jemalloc.props" /> -->
   <!-- <Import Project="$(MSBuildThisFileDirectory)\kqueue.props" /> -->
   <Import Project="$(MSBuildThisFileDirectory)\pthread.props" />
 </Project>
