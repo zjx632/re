@@ -20,10 +20,14 @@
 #define DEBUG_LEVEL 5
 #include <re_dbg.h>
 
-//#include <jemalloc/jemalloc.h>
-#define re_malloc		malloc
-#define re_realloc		realloc
-#define re_free			free
+#include <jemalloc/jemalloc.h>
+#define re_malloc		je_malloc
+#define re_realloc		je_realloc
+#define re_free			je_free
+//#include <nedmalloc/nedmalloc.h>
+//#define re_malloc		nedmalloc
+//#define re_realloc		nedrealloc
+//#define re_free			nedfree
 
 
 #ifndef RELEASE
